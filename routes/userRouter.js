@@ -3,7 +3,6 @@ const  express= require('express');
 
 const app = express();
 
-const router = app.router();
 
 const  getAllUsers =(req, res)=>{
     res.status(500).json(
@@ -45,10 +44,10 @@ const  removeUser =(req, res)=>{
         }
     )
 };
-
+const router = express.Router();
 //router
 
-router.route.get('/', getAllUsers).post(createUser);
+router.route('/').get(getAllUsers).post(createUser);
 
 app.get('/api/v1/users/:id', getSingleUSer);
 app.patch('/api/v1/users/:id', updateUSer);
